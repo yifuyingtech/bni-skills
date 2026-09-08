@@ -1,0 +1,8 @@
+interface:
+  display_name: "BNI PALMS Weekly"
+  short_description: "Download and validate weekly BNI PALMS report files"
+  brand_color: "#CF2030"
+  default_prompt: "Use $bni-palms-weekly to download weekly PALMS summary reports from my signed-in BNI Connect tab."
+
+policy:
+  allow_implicit_invocation: true
