@@ -1,8 +1,8 @@
 interface:
   display_name: "BNI PALMS Weekly"
-  short_description: "Download and validate weekly BNI PALMS report files"
+  short_description: "Download PALMS and backfill missing weeks through MCP"
   brand_color: "#CF2030"
-  default_prompt: "Use $bni-palms-weekly to download weekly PALMS summary reports from my signed-in BNI Connect tab."
+  default_prompt: "Use $bni-palms-weekly to check missing PALMS weeks through my connected MCP, download and validate reports, then show a dry-run plan before importing."
 
 policy:
   allow_implicit_invocation: true

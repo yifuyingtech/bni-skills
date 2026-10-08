@@ -1,6 +1,6 @@
 ---
 name: bni-palms-weekly
-description: Download and validate weekly PALMS Summary Report .xls files from a user's signed-in BNI Connect browser tab. Use when a BNI chapter core-team member asks GPT or Codex to export PALMS data in consecutive weekly ranges; do not use for bypassing login, obtaining credentials, or accessing chapters the user cannot normally view.
+description: Download and validate weekly BNI PALMS .xls reports; optionally identify missing weeks and import validated data through a chapter-scoped PALMS MCP. Use for weekly exports or PALMS backfills, not bypassing BNI login or accessing unauthorized chapters.
 ---
 
 # BNI PALMS Weekly
@@ -8,6 +8,8 @@ description: Download and validate weekly PALMS Summary Report .xls files from a
 Use the user's existing authenticated BNI Connect browser session. Never request, store, print, or commit passwords, cookies, session identifiers, `crypt`, `__params_key`, or `encryptString` values.
 
 ## Download workflow
+
+For download-only requests, follow the workflow below without requiring an MCP connection. For missing-week discovery or platform import, first read [references/palms-mcp.md](references/palms-mcp.md) and follow its reconcile → download → validate → dry-run → approve → import → verify workflow. A request to improve this skill is not permission to import live data.
 
 1. Confirm the user has explicitly identified the BNI Connect tab and requested report downloads. If login is required, let the user complete login and any CAPTCHA.
 2. Open **Reports → Chapter → PALMS Summary Report** and derive the currently selected chapter from the visible page. Do not hardcode a chapter name or organization ID.
@@ -26,3 +28,4 @@ For endpoint behavior, browser-blocking recovery, and workbook field names, read
 - Do not turn transient export URLs into a public API: their encrypted parameters are short-lived and session-bound.
 - Stop after repeated authentication/permission failures and ask the user to verify their BNI role or selected chapter.
 - Keep parsing independent of member names, chapter names, locale text outside the documented PALMS fields, and a specific calendar year.
+- Never store MCP bearer keys in this skill, its examples, manifests, or Git. Use the client's existing authorized connection; do not install or persist credentials just to inspect the skill.
